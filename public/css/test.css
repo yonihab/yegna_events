@@ -1,0 +1,66 @@
+.bg-rainbow {
+    animation: rainbow 8s ease infinite;
+    background-image: linear-gradient(124deg, #ff470f, #ff3860, #b86bff, #3273dc);
+    background-size: 800% 800%;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 1% 80%;
+    }
+    50% {
+        background-position: 99% 20%;
+    }
+    100% {
+        background-position: 1% 80%;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #e0e4d6;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    text-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
+    margin: 2px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all ease-in-out 300ms;
+}
+
+.btn-normal:hover {
+    transition: 0.3s;
+    opacity: .9;
+}
+
+a.btn-normal {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-normal-round {
+    border-radius: 50px;
+}
+
+.btn-normal.btn-normal-block {
+    width: 100%;
+}
+
+.box {
+    position: relative;
+    display: block;
+    background-color: #fff;
+    margin: 3px;
+    padding: 1rem;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: ease-in all .3s;
+}
+
+.box:hover {
+    -webkit-box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}

@@ -1,0 +1,135 @@
+/* COLORS 
+
+GREENISH #32DB64 
+PURPLISH #7B3DBA
+RED_Purplish #A52684
+DARKISH #3E3E3E 
+LIGHT GREY #F2F3F9
+DANGER?RED #EC3E3E
+*/
+
+@import url('animate.css');
+@import url('test.css');
+body {
+    color: #5a5a5a;
+    font-family: montserrat, arial, verdana;
+}
+
+.bg-greenish {
+    background-color: #32DB64;
+}
+
+.bg-purplish {
+    background-color: #7B3DBA;
+}
+
+.bg-redPurplish {
+    background-color: #A52684;
+}
+
+.bg-darkish {
+    background-color: #3E3E3E;
+}
+
+
+/* Utility */
+
+.light-title {
+    font-weight: lighter;
+}
+
+.fancy-title {
+    background-color: #32DB64;
+    color: #fff;
+    padding: 3px;
+}
+
+
+/* END Utility */
+
+.navbar {
+    padding-top: 15px;
+}
+
+.featured-event-tag {
+    background-color: #A52684;
+    color: #fff;
+    border-radius: 2px;
+    padding: 3px;
+    font-size: 80%;
+    margin: 3px 0;
+}
+
+
+/* Section Event Org */
+
+.event-organiser {
+    background-color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+
+/* Section event category */
+
+.event-category {
+    background-color: #A52684;
+    padding-bottom: 1.5rem;
+}
+
+.cat-card {
+    position: relative;
+    display: block;
+    background-color: rgb(32, 32, 32);
+    margin: 3px;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: ease-in all .3s;
+    height: 350px;
+}
+
+.cat-card img {
+    width: 100%;
+    height: 100%;
+}
+
+.cat-card .cat-text {
+    position: relative;
+    z-index: 999;
+}
+
+
+/* footer */
+
+footer {
+    background-color: #1E2332;
+}
+
+footer .copy-bar {
+    background-color: #1B202F;
+}
+
+.footer-links {
+    padding: 0;
+    margin: 0;
+    font-size: 90%;
+    list-style: none;
+    text-align: center;
+}
+
+.footer-links li:first-child {
+    font-style: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.footer-links li a {
+    color: rgb(179, 179, 179);
+}
+
+.footer-links li a:hover {
+    color: #fff;
+    text-transform: none;
+}
