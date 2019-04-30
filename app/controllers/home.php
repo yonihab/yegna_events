@@ -12,7 +12,9 @@ class Home extends Controller
 	}
 
 	public function index(){
+		$users = DB::getInstance()->query('SELECT * FROM users');
 
-		self::view('home/index');
+		print_r($users->result());;
+		// self::view('home/index');
 	}
 }
