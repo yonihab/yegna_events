@@ -1,5 +1,6 @@
 <?php
 // echo getcwd() . '/n';
+$title = 'Yegna Events';
 $statehome = "active";
  require_once 'app/views/partials/header.php';
 
@@ -22,7 +23,7 @@ $statehome = "active";
                             <span class="featured-event-tag">Featured Event</span>
                             <h1>Example headline.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn-lg bg-rainbow btn-normal" href="https://getbootstrap.com/docs/4.0/examples/carousel/#" role="button">Sign up today</a></p>
+                            <p><a class="ye_btn btn-lg" href="https://getbootstrap.com/docs/4.0/examples/carousel/#" role="button">Sign up today</a></p>
                         </div>
                     </div>
                 </div>
@@ -33,7 +34,7 @@ $statehome = "active";
                             <span class="featured-event-tag">Featured Event</span>
                             <h1>Another example headline.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn-lg bg-rainbow btn-normal" href="https://getbootstrap.com/docs/4.0/examples/carousel/#" role="button">Learn more</a></p>
+                            <p><a class="ye_btn btn-lg" href="https://getbootstrap.com/docs/4.0/examples/carousel/#" role="button">Learn more</a></p>
                         </div>
                     </div>
                 </div>
@@ -44,7 +45,7 @@ $statehome = "active";
                             <span class="featured-event-tag">Featured Event</span>
                             <h1>One more for good measure.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn-lg bg-rainbow btn-normal" href="https://getbootstrap.com/docs/4.0/examples/carousel/#" role="button">Browse gallery</a></p>
+                            <p><a class="ye_btn btn-lg" href="https://getbootstrap.com/docs/4.0/examples/carousel/#" role="button">Browse gallery</a></p>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-
+$title = 'Login | Yegna Events';
 $statelogin = "active";
 require_once 'app/views/partials/header.php';
 
@@ -14,8 +14,8 @@ require_once 'app/views/partials/header.php';
             <div class="col-md-4 col-sm-12 ">
                 <div class="card login-card">
                     <div class="card-body">
-                        <div class="login-pic">
-                            <img src="imgs/logo/logo.svg" alt="" class="img-fluid">
+                        <div class="form-pic text-center">
+                            <img src="public/assets/img/logo.png" alt="" class="img-fluid m-1" width="70">
                         </div>
                         <div class="login-text text-center">
                             <h5>Login into Yegna Events</h5>
@@ -23,28 +23,20 @@ require_once 'app/views/partials/header.php';
                         <form method="post" action="">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="userEmail"  aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll not share your email with anyone else.</small>
+                                <input type="email" class="form-control" name="email"  aria-describedby="emailHelp" placeholder="Enter email">
+                               
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Are You?</label>
-                                <select name="user-type" id="" class="form-control">
-                                	<option value="">Event organiser</option>
-                                	<option value="">Event attendee</option>
-                                </select>
+                                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
                             </div>
                             
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            <button type="submit" class="ye_btn btn-block" name="loginButton">Login</button>
                         </form>
                     <!--     <h5 class="text-center">-- OR --</h5>
 

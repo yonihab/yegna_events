@@ -16,10 +16,12 @@
     }
 }
 
-.btn {
+.ye_btn {
     display: inline-block;
     padding: 12px 18px;
-    background: #e0e4d6;
+    
+    background: #fff;
+    color: #4FC099;
     border: 1px solid transparent;
     border-radius: 4px;
     cursor: pointer;
@@ -29,22 +31,24 @@
     font-weight: 600;
     transition: all ease-in-out 300ms;
 }
-
-.btn-normal:hover {
-    transition: 0.3s;
-    opacity: .9;
+.ye_btn:hover{
+    background: #4FC099;
+    color: #fff;
+     -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
 
-a.btn-normal {
+
+a.ye_btn-normal {
     text-decoration: none;
     color: #fff;
 }
 
-.btn-normal-round {
+.ye_btn-normal-round {
     border-radius: 50px;
 }
 
-.btn-normal.btn-normal-block {
+.ye_btn-normal.btn-normal-block {
     width: 100%;
 }
 

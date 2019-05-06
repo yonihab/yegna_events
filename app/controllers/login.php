@@ -6,16 +6,14 @@
 class LogIn extends Controller
 {
 	
-	function __construct()
-	{
-		# code...
-	}
-
 	public function index(){
+		// check if post is submitted or user alerdy existes in session
+		if (Input::exists()) {
+			// $validate = new Validate();
 
-		if (isset($_POST['loginButton'])) {
-			echo 'elelelelelel';
-			# code...
+			// $validation = $validate->check($_POST, array(
+			// 	''
+			// ))
 		}
 		self::view('login/index');
 	}
