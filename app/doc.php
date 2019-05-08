@@ -16,7 +16,7 @@
 
 	// TO SELECT ALL FROM TABEL
 	$users = DB::getInstance();
-	$users->getAll('users');
+	$user = $users->getAll('users');
 
 	$user->result();
 

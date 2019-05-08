@@ -73,7 +73,7 @@ class DB
 
 		if(count($where) == 3){
 
-			if($where[1] == 'all'){
+			if($where[1] === 'all'){
 				
 				$sql = "{$action} FROM {$table}";
 				$this->query($sql);

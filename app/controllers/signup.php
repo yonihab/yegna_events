@@ -67,16 +67,6 @@ class SignUp extends Controller
 				Redirect::to('verify');
 
 
-				// if(Input::get('user-type') === 'event_org')
-				// {
-
-		
-				// }else{
-				// 	// save user and redirect to step two
-				// 	$user = self::model('users');
-
-
-				// }
 			} else{
 				$errors = $validation->errors();
 				
@@ -88,7 +78,5 @@ class SignUp extends Controller
 
 		self::view('signup/index');
 	}
-	public function stepOne(){
-		echo 'AHA!';
-	}
+	
 }

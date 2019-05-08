@@ -11,7 +11,7 @@ class Hash
 		return hash('sha256', $string);
 	}
 
-    // generates a random hash
+    // generates hash from a random number
 	public static function generate(){
 		return md5(rand(0,1000));
  

@@ -12,6 +12,16 @@ require_once 'app/views/partials/header.php';
 
             </div>
             <div class="col-md-4 col-sm-12 ">
+                <?php
+                    if (isset($data) && !empty($data)) {
+                       echo "<div class=\"alert alert-danger\"> "
+                                . "<ul>";
+                        foreach ($data as $error) {
+                           echo "<li> " . $error . "</li>";
+                        }
+                        echo "</ul></div>";
+                    }
+                 ?>
                 <div class="card login-card">
                     <div class="card-body">
                         <div class="form-pic text-center">
@@ -23,7 +33,8 @@ require_once 'app/views/partials/header.php';
                         <form method="post" action="">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email"  aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" name="email"
+                                value="<?php echo Input::get('email')?>" placeholder="Enter email">
                                
                             </div>
 

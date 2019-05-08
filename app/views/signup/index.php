@@ -42,7 +42,7 @@ require_once 'app/views/partials/header.php';
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">username</label>
-                                        <input type="text" class="form-control" name="username" placeholder="Enter Full Name" value="<?php echo Input::get('username')?>">
+                                        <input type="text" class="form-control" name="username" placeholder="Enter Username" value="<?php echo Input::get('username')?>">
                                         
                                     </div>
 
