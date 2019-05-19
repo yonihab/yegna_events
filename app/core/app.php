@@ -22,9 +22,22 @@ class App
 			$this->controller = $url[0];
 			unset($url[0]);
 		}
-		// else redirect to 404
+		// else{
+		// 	// else redirect to 404
+		// 	Redirect::to('app/404.php');
+		// }
+		
 
-		require_once 'app/controllers/' . $this->controller . '.php';
+		//require_once 'app/controllers/' . $this->controller . '.php';
+
+		if(file_exists('app/controllers/' . $this->controller . '.php')){
+
+			require_once 'app/controllers/' . $this->controller . '.php';
+			
+		}else{
+			// else redirect to 404
+			Redirect::to('app/404.php');
+		}
 
 		$this->controller = new $this->controller;
 
@@ -36,9 +49,10 @@ class App
 				$this->method = $url[1];
 				unset($url[1]);
 
+			}else{
+				// else redirect to 404
+				Redirect::to('app/404.php');
 			}
-
-			// else redirect to 404
 		}
 
 

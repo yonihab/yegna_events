@@ -14,6 +14,7 @@ class Session
 	public static function put($name, $value)
 	{
 		$_SESSION[$name] = $value;
+
 	}
 
 	public static function get($name)
@@ -27,7 +28,7 @@ class Session
 		}
 
 	}
-	// one time uses session
+	// one time use session
 	public static function flash($name, $string = ''){
 		if(self::exists($name)){
 			$session = self::get($name);

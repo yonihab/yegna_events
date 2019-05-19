@@ -1,12 +1,11 @@
 <?php 
 // echo getcwd() . '/n';
-$title = 'Events | Dashboard';
-$events = "active";
+$title = 'Settings | Dashboard';
 require_once 'app/views/partials/dashboard-header.php';
 
 ?>
 <div class="container bg-light">
-	list events here
+	settings here
 </div>
 
 <?php

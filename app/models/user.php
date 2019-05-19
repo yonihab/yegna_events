@@ -60,7 +60,7 @@ class User
 		if($user){
 			if($this->data()->fetch_array()['password'] === Hash::make($pass)){
 				// add user to session
-				Session::put('user', $this->data()->fetch_array()['user_ID']);
+				Session::put('user_id', $this->data()->fetch_array()['user_ID']);
 				return true;
 			}
 		}

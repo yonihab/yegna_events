@@ -27,8 +27,9 @@ class LogIn extends Controller
 				$login = $user->login(Input::get('email'), Input::get('password'));
 
 				if($login){
-					// check user type 
-					Redirect::to('home');
+					// check user type redirect accordingly
+					// set session
+					Redirect::to('dashboard');
 				}else{
 					$error = array('Login falid! Please provide the correct email and password.');
 					self::view('login/index', $error);

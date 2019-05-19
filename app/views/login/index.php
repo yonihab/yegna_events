@@ -21,6 +21,11 @@ require_once 'app/views/partials/header.php';
                         }
                         echo "</ul></div>";
                     }
+                     if (Session::exists('login_redirect')) {
+                        echo "<div class=\"alert alert-info\"> ";
+                        echo Session::flash('login_redirect');      
+                        echo "</div>";
+                    }
                  ?>
                 <div class="card login-card">
                     <div class="card-body">
