@@ -1,13 +1,10 @@
 <?php
 
-/**
-* 
-*/
 class LogIn extends Controller
 {
 	
 	public function index(){
-		// check if post is submitted or user alerdy existes in session
+		//TODO: check if post is submitted or user alerdy existes in session
 		if (Input::exists()) {
 			$validate = new Validate();
 
@@ -29,7 +26,11 @@ class LogIn extends Controller
 				if($login){
 					// check user type redirect accordingly
 					// set session
-					Redirect::to('dashboard');
+					$userType = $user->userType();
+					if($userType == 'event_org'){
+						Redirect::to('dashboard');						
+					}
+
 				}else{
 					$error = array('Login falid! Please provide the correct email and password.');
 					self::view('login/index', $error);

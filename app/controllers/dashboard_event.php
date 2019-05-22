@@ -1,9 +1,9 @@
 <?php
 
-class Dashboard_settings extends Controller
+class Dashboard_event extends Controller
 {
 	
-	public function index(){
+	public function show($param){
 		// check if user is logged in
 		$user = self::model('user');;
 
@@ -13,7 +13,7 @@ class Dashboard_settings extends Controller
   			Redirect::to('login');
 		}
 
-		self::view('dashboard/settings', $user->data()->fetch_array());
+		self::view('dashboard/event', $user->data()->fetch_array());
 	}
 	
 }

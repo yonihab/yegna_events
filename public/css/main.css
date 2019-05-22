@@ -1,6 +1,6 @@
 /* COLORS 
 
-GREENISH #32DB64 
+GREENISH #4FC099
 PURPLISH #7B3DBA
 RED_Purplish #A52684
 DARKISH #3E3E3E 
@@ -16,7 +16,7 @@ body {
 }
 
 .bg-greenish {
-    background-color: #32DB64;
+    background-color: #4FC099;
 }
 
 .bg-purplish {

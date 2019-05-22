@@ -45,7 +45,7 @@ class Validate
 
 						case 'matches':
 							if($value != $source[$rule_value]){
-								//TODO: get display of a the matching value 
+								//TODO: get display of the matching value 
 								$this->addError("{$display} must match {$rule_value}.");
 							}
 							break;

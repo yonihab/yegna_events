@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
 
-            <a class="navbar-brand" href="#"><img src="public/assets/img/logo.png" width="30" height="30" alt=""> Yegna Events</a>
+            <a class="navbar-brand" href="#"><img src="public/assets/img/logo.png" width="30" height="30" alt="yegna events logo"> Yegna Events</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

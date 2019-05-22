@@ -1,0 +1,9 @@
+
+
+.ye_card{
+	background-color: white;
+	border-radius: 4px;
+	padding: 12px;
+	-webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}

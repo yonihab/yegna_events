@@ -1,9 +1,5 @@
 <?php
 
-if(!Session::exists('user_id')){
-  Session::flash('login_redirect', 'Please Login first!');
-  Redirect::to('login');
-}
 
 
 ?>
@@ -28,9 +24,11 @@ if(!Session::exists('user_id')){
 	<link rel="stylesheet" href="public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="public/css/font-awesome.min.css">
 	<link rel="stylesheet" href="public/css/main.css" />
+  <link rel="stylesheet" href="public/css/animate.css" />
+    <link rel="stylesheet" href="public/css/dashboard.css" />
 	<link rel="stylesheet" href="public/css/test.css">
 	<link rel="stylesheet" href="public/css/carousel.css">
-    <link href="public/css/sidebar.css" rel="stylesheet">
+  <link href="public/css/sidebar.css" rel="stylesheet">
 
 </head>
 
@@ -40,11 +38,15 @@ if(!Session::exists('user_id')){
 
     <!-- Sidebar -->
     <div class="bg-darkish border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Yegna Events </div>
+      <div class="sidebar-heading"><img src="public/assets/img/logo.png" width="30" height="30" alt="yegna events logo" class="ml-2"> Yegna Events </div>
       <div class="list-group list-group-flush">
         <a href="dashboard" class="list-group-item list-group-item-action bg-darkish"><i class="fa fa-list px-2"></i> Events</a>
         <a href="dashboard_formbuilder" class="list-group-item list-group-item-action bg-darkish"><i class="fa fa-pencil-square px-2"></i> Form Builder</a>
-         
+         <a href="dashboard_notification" class="list-group-item list-group-item-action bg-darkish"><i class="fa fa-bell px-2"></i> Notification 
+            <!-- check if there is any new notifcation and make it visible with data -->
+            <span class="badge badge-danger">12</span>
+
+         </a>
         <a href="dashboard_profile" class="list-group-item list-group-item-action bg-darkish"><i class="fa fa-user px-2"></i> Profile</a>
         <a href="dashboard_settings" class="list-group-item list-group-item-action bg-darkish"><i class="fa fa-cog px-2"></i> Setting</a>
       </div>
@@ -55,7 +57,8 @@ if(!Session::exists('user_id')){
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-        <a class="sidebar-menu-btn" id="menu-toggle"> <img src="public/assets/img/menu.svg" alt="menu"> Menu</a>
+        <div class="container">
+          <a class="sidebar-menu-btn" id="menu-toggle"> <img src="public/assets/img/menu.svg" alt="menu"> Menu</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -69,17 +72,16 @@ if(!Session::exists('user_id')){
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+             <li class="nav-item dropdown mr-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hi, <?php echo $data['userData']['username']?>
               </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="dashboard_profile">Profile</a>
+                <a class="dropdown-item" href="logout">Logout</a>
               </div>
             </li>
           </ul>
+        </div>
         </div>
       </nav>

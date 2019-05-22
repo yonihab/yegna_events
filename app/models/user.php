@@ -7,6 +7,7 @@ class User
 {
 	private $_db = null,
 			$_data,
+			$_userArray,
 			$_isLoggedIn = false;
 	
 	public function __construct()
@@ -14,8 +15,8 @@ class User
 		$this->_db = DB::getInstance();
 
 		if(!$user){
-			if(Session::exists('user')){
-				$user = Session::get('user');
+			if(Session::exists('user_id')){
+				$user = Session::get('user_id');
 				if($this->find($user))
 				{
 					$this->_isLoggedIn = true;	
@@ -46,6 +47,7 @@ class User
 
 			if($data->count() == 1){
 				$this->_data = $data->result();
+
 				return true;
 			}
 		}
@@ -58,9 +60,10 @@ class User
 		$user = $this->find($email);
 
 		if($user){
-			if($this->data()->fetch_array()['password'] === Hash::make($pass)){
+			$this->_userArray = $this->data()->fetch_array();
+			if($this->_userArray['password'] === Hash::make($pass)){
 				// add user to session
-				Session::put('user_id', $this->data()->fetch_array()['user_ID']);
+				Session::put('user_id', $this->_userArray['user_ID']);
 				return true;
 			}
 		}
@@ -69,8 +72,16 @@ class User
 
 	}
 
+	public function userType(){
+		return $this->_userArray['user_type'];		
+	}
+
 	public function data(){
 		return $this->_data;
+	}
+
+	public function logout(){
+		Session::delete('user_id');
 	}
 
 	public function isLoggedIn(){

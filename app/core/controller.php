@@ -11,13 +11,11 @@ class Controller
 			return new $model();
 		}
 
-
-		
+	
 	}
 
 
-	public static function view($view, $data = []){
-
+	public static function view($view, $data = []){ 
 		require_once 'app/views/'. $view . '.php';
 
 	}

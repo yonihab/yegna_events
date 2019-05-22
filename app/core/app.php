@@ -74,7 +74,7 @@ class App
 		{
 
 			// rtrime trims the trailing forward slash 
-			// filer_var sanitizes the url
+			// filter_var sanitizes the url
 			// explode explodes the text by / and chnages it into array
 
 			return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
