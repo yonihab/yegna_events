@@ -2,8 +2,9 @@
 
 class Dashboard_event extends Controller
 {
+	public $data = array();
 	
-	public function show($param){
+	public function edit($param){
 		// check if user is logged in
 		$user = self::model('user');;
 
@@ -13,7 +14,17 @@ class Dashboard_event extends Controller
   			Redirect::to('login');
 		}
 
-		self::view('dashboard/event', $user->data()->fetch_array());
+		$data['userData'] = $user->data()->fetch_array();
+
+		$event = self::model('event');
+
+		if($event->find($param[0])){
+			$data['eventData'] = $event->data();
+		}
+
+
+
+		self::view('dashboard/event', $data);
 	}
 	
 }

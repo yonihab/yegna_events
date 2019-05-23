@@ -18,10 +18,8 @@ class Dashboard extends Controller
 
 		$event = self::model('event');
 
-		if($event->find($data['userData']['user_ID'])){
+		if($event->findByUser($data['userData']['user_ID'])){
 			$data['eventData'] = $event->data();
-
-			//print_r($event->data()->fetch_all());
 		}
 
 

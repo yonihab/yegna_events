@@ -5,9 +5,9 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="public/js/jquery-3.2.1.min.js"></script>
-  <script src="public/js/bootstrap.bundle.min.js"></script>
-  <script src="public/js/main.js"></script>
+  <script src="<?php echo $host?>public/js/jquery-3.2.1.min.js"></script>
+  <script src="<?php echo $host?>public/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo $host?>public/js/main.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>

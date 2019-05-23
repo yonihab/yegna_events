@@ -49,12 +49,12 @@ require_once 'app/views/partials/dashboard-header.php';
 		//print_r($data);
 		foreach ($data['eventData'] as $event) {
 			?>
-			<tr class="animated bounceInUp">
+			<tr class="animated fadeInUp">
 		      <th scope="row"><?php echo $event[0]; ?></th>
 		      <td><?php echo $event[2]; ?></td>
 		      <td><?php echo $event[4]; ?></td>
 		      <td><?php echo $event[13]; ?></td>
-		      <td><a href="dashboard_event/show/<?php echo $event[0];?>" class="btn"><span class="fa fa-pencil"></span> Edit</a></td>
+		      <td><a href="dashboard_event/edit/<?php echo $event[0];?>" class="btn"><span class="fa fa-external-link"></span> open</a></td>
 		    </tr>
 
 		    <?
