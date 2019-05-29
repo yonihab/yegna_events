@@ -25,6 +25,8 @@ class Event
 		if(!$this->_db->insert('event', $fields)){
 			throw new Exception("Error While creating an event..");
 		}
+		
+
 	}
 
 	public function findByUser($userid = null){
@@ -57,6 +59,6 @@ class Event
 	}
 
 	public function data(){
-		return $this->_data->fetch_all();
+		return $this->_data;
 	}
 }

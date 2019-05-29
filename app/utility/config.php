@@ -22,7 +22,7 @@ class Config
 			self::$_configs = require_once './app/config.file.php';
 
 		}
-
+		// temp config array
 		$configs = [];
 
 		if($path){

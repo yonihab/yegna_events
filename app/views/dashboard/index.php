@@ -7,7 +7,7 @@ require_once 'app/views/partials/dashboard-header.php';
 ?>
 <!-- add event modal -->
 <div class="container my-3">
-	<div class="events-list ye_card mb-3">
+	<div class="events-list mb-3">
 		<?php
 		if (Session::exists('event_success')) {
             echo "<div class=\"alert alert-success animate my-2\"> ";
@@ -18,7 +18,7 @@ require_once 'app/views/partials/dashboard-header.php';
 		<!-- add event -->
 		<div class="row">
 			<div class="col-md-10 align-self-center pl-4">
-				<h4 class="lead">Events</h4>	
+				<h4 class="">Events</h4>	
 			</div>
 			<div class="col-md-2">
 				<a class="ye_btn " href="dashboard_addevent"><i class="fa fa-plus"></i> Add Event</a>
@@ -31,10 +31,10 @@ require_once 'app/views/partials/dashboard-header.php';
 
 	if(isset($data['eventData']) && !empty($data['eventData'])){
 		?>
-		<div class="ye_card">
+		<div class="ye_card p-0">
 		<table class="table table-hover">
 		  <thead>
-		    <tr>
+		    <tr class="bg-greenish text-white">
 		      <th scope="col">#</th>
 		      <th scope="col">Event Name</th>
 		      <th scope="col">Start Date</th>

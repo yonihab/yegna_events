@@ -21,7 +21,8 @@ class User
 				{
 					$this->_isLoggedIn = true;	
 				}else{
-					// process logout
+					Session::flash('login_redirect', 'Please Login first!');
+  					Redirect::to('login');
 				}
 			}
 		}else{

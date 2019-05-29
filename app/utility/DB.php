@@ -54,6 +54,7 @@ class DB
 		
 		$result = $this->_mysqli->query($sql);
 
+
 		if(!$result){
 			$this->_error = true;
 		}else{
@@ -181,7 +182,6 @@ class DB
 
 		if(in_array($oprator, $oprators)){
 			$sql = "UPDATE `{$table}` SET {$set} WHERE {$field} {$oprator} {$value}";
-			echo $sql;
 			$this->query($sql);
 
 			if(!$this->error()){

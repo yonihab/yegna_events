@@ -6,8 +6,13 @@
 class Redirect
 {
 	
-	public static function to($path)
+	public static function to($path, $root = false)
 	{
+		
+		if($root){
+			$path = 'http://' . $_SERVER['HTTP_HOST'] . '/yegna_events-mvc/' . $path;
+		}
+
 		header('Location: ' . $path);
 		exit();
 	}

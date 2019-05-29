@@ -22,13 +22,7 @@ class App
 			$this->controller = $url[0];
 			unset($url[0]);
 		}
-		// else{
-		// 	// else redirect to 404
-		// 	Redirect::to('app/404.php');
-		// }
 		
-
-		//require_once 'app/controllers/' . $this->controller . '.php';
 
 		if(file_exists('app/controllers/' . $this->controller . '.php')){
 
@@ -36,7 +30,7 @@ class App
 			
 		}else{
 			// else redirect to 404
-			Redirect::to('app/404.php');
+			Redirect::to('pagenotfound', true);
 		}
 
 		$this->controller = new $this->controller;
@@ -51,9 +45,19 @@ class App
 
 			}else{
 				// else redirect to 404
-				Redirect::to('app/404.php');
+				Redirect::to('pagenotfound', true);
 			}
+		}else{
+
+			if(!method_exists($this->controller, 'index')){
+				// else redirect to 404
+				Redirect::to('pagenotfound', true);
+
+			}
+
 		}
+
+		
 
 
 		// check if there is any value left in url if so rebase the array to params

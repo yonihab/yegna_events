@@ -4,6 +4,20 @@
 	background-color: white;
 	border-radius: 4px;
 	padding: 12px;
-	-webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+	-webkit-box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 4px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.ye_nav > .nav-item > .nav-link{
+	color: #3E3E3E;
+	transition: ease-in all .2s;
+	
+}
+
+.ye_nav > .nav-item > .nav-link:hover{
+	color: #4FC099;	
+}
+
+.ye_nav > .nav-item > .nav-link.active{
+	color: #4FC099;	
 }
