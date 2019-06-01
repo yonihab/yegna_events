@@ -32,7 +32,7 @@ class Budget
 
 	// update data of the budget table
 
-	public function update($budgetID, $fields = array())
+	public function updateBudget($budgetID, $fields = array())
 	{
 		if(!$this->_db->update('budget', array('budget_ID','=', $budgetID), $fields)){
 			throw new Exception("Error While updating..");
@@ -81,8 +81,9 @@ class Budget
 	// find budget items
 
 	public function getBudgetItems($budget_ID){
+
 		if($budget_ID){
-			$data = $this->_db->getAll('budget_item', array('budget_ID', '=', $budget_ID));
+			$data = $this->_db->get('budget_item', array('budget_ID', '=', $budget_ID));
 
 			if(!$data->error()){
 				return $data->result();
@@ -90,6 +91,8 @@ class Budget
 		}
 
 	}
+
+
 
 	// delete budget item 
 

@@ -61,7 +61,14 @@ class App
 
 
 		// check if there is any value left in url if so rebase the array to params
-		$this->params = $url ? array_values($url) : [];
+		if(!empty($url)){
+			// USE MERGE
+			$this->params = array_values($url);
+			var_dump($url);
+		}else{
+			$this->params = [];
+		}
+		//$this->params = $url ? array_values($url) : [];
 
 
 		// call a function in an object and pass parameters as arrays

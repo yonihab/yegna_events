@@ -10,6 +10,9 @@ class Dashboard_event extends Controller
 		$budget = self::model('budget');
 		$event = self::model('event');
 
+		// intiate validation class
+		$validate = new validate();
+
 		// check if user is logged in
 		if(!$user->isLoggedIn()){
 			
@@ -22,57 +25,120 @@ class Dashboard_event extends Controller
 		if(Input::exists()){
 			if(isset($_POST['targetsubmit'])){
 				// process target budget 
+				$validation = $validate->check($_POST, array(
+					'target_budget' => array(
+						'display' => 'Target budget',
+						'required' => true,
+						'type' => 'number'
+					)
+
+				));
 
 				if($budget->findByEvent($param[0])){
+
 					$tempData = $budget->data()->fetch_array();
+					
+					if($validation->passed()){
+						try{
+							$budget->updateBudget($tempData['budget_ID'], array(
+								'target_budget' => Input::get('target_budget'),
+							));
 
-					try{
-						$budget->update($tempData['budget_ID'], array(
-							'target_budget' => Input::get('target_budget'),
-						));
+						}catch (Exception $e){
 
-					}catch (Exception $e){
+							$e->getMessage();
+						}
 
-						$e->getMessage();
+						// success message
+						$data['success'] = 'Successfully added a target budget!';
+
+					}else{
+						// validation error 
+						$data['error'] = $validation->errors();
 					}
 
-					// success message
+					
+
+					
 				}else{
-					try{
-						$budget->create(array(
-							'event_ID' => $param[0],
-							'target_budget' => Input::get('target_budget'),
-							'estimated_expense' => 0,
-							'estimated_income' => 0
-						));
 
-					}catch (Exception $e){
+					if($validation->passed()){
+						try{
+							$budget->create(array(
+								'event_ID' => $param[0],
+								'target_budget' => Input::get('target_budget'),
+								'estimated_expense' => 0,
+								'estimated_income' => 0
+							));
 
-						$e->getMessage();
+						}catch (Exception $e){
+
+							$e->getMessage();
+						}
+						
+						// success message
+						$data['success'] = 'Successfully updated a target budget!';
+
+					}else{
+						// validation error 
+						$data['error'] = $validation->errors();
 					}
-
-					// success message
+					
+					
 				}
 			}
 			else if(isset($_POST['itemSubmit'])){
 				//TO-DO: validate
+				$validation = $validate->check($_POST, array(
+					'item_name' => array(
+						'display' => 'Item name',
+						'required' => true	
+					),
+					'item_category' => array(
+						'display' => 'Item Category',
+						'required' => true
+					),
+					'item_type' => array(
+						'display' => 'Item Type',
+						'required' => true
+					),
+					'item_amount' => array(
+						'display' => 'Item Amount/Total cost',
+						'required' => true,
+						'type' => 'number'
+					)
+
+				));
+
 
 				if($budget->findByEvent($param[0])){
 					$tempData = $budget->data()->fetch_array();
 
-					try{
-						$budget->addBudgetItem(array(
-							'budget_ID' => $tempData['budget_ID'],
-							'item_name' => Input::get('item_name'),
-							'category' => Input::get('item_category'),
-							'type' => Input::get('item_type'),
-							'amount' => Input::get('item_amount')
-						));
+					if($validation->passed()){
+						try{
+							$budget->addBudgetItem(array(
+								'budget_ID' => $tempData['budget_ID'],
+								'item_name' => Input::get('item_name'),
+								'category' => Input::get('item_category'),
+								'type' => Input::get('item_type'),
+								'amount' => Input::get('item_amount')
+							));
 
-					}catch (Exception $e){
+						}catch (Exception $e){
 
-						$e->getMessage();
+							$e->getMessage();
+						}
+						$data['incomeExpense'] = $this->updateIncomeExpense($param[0],Input::get('item_type'), Input::get('item_amount'));
+
+						// success message
+						$data['success'] = 'Successfully added a budget item!';
+
+					}else{
+						// validation error 
+						$data['error'] = $validation->errors();
 					}
+
+					
 
 				}
 
@@ -102,5 +168,47 @@ class Dashboard_event extends Controller
 
 		self::view('dashboard/event', $data);
 	}
+
+	public function delete($param){
+		print_r($param);
+		die();
+
+
+	}
+
+	// update expense and income value
+
+	public function updateIncomeExpense($eventID, $type, $amount){
+		$income = 0;
+		$expense = 0;
+		$budget = array();
+		$budgetModel = self::model('budget');
+
+		if($budgetModel->findByEvent($eventID)){
+			$budget = $budgetModel->data()->fetch_array();
+		}
+		
+
+		if($type == 'income'){
+			$income = $budget['income'] + ($amount);
+		}else if($type == 'expense'){
+			$expense = $budget['expense'] + ($amount);
+		}
+
+		// update db
+		try {
+			$budgetModel->updateBudget($budget['budget_ID'], array(
+				'estimated_income' => $income,
+				'estimated_expense' => $expense
+			));
+			
+		} catch (Exception $e) {
+			$e->getMessage(); 
+		}
+
+		// return both
+		return ['income' => $income, 'expense' => $expense];
+	}
+	
 	
 }

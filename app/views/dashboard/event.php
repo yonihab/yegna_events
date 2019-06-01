@@ -9,6 +9,7 @@ require_once 'app/views/partials/dashboard-header.php';
 $eventData  = null;
 $budgetData  = null; 
 $budgetItems  = null;
+$incomeExpense = null;
 
 if (isset($data['eventData']) && !empty($data['eventData'])) {
 	$eventData = $data['eventData'];
@@ -23,9 +24,11 @@ if (isset($data['budgetData']) && !empty($data['budgetData'])) {
 
 if (isset($data['budget_items']) && !empty($data['budget_items'])) {
 	$budgetItems = $data['budget_items'];
-
-
 	
+}
+if(isset($data['incomeExpense']) && !empty($data['incomeExpense'])){
+	$incomeExpense = $data['incomeExpense'];
+
 }
 ?>
 <!-- Modal Target Amount-->
@@ -123,7 +126,8 @@ if (isset($data['budget_items']) && !empty($data['budget_items'])) {
 
 	<div class="row">
 		<div class="col-md-3">
-			
+
+
 
 			<h6>Tools</h6>
 			<div class="ye_card">
@@ -158,18 +162,59 @@ if (isset($data['budget_items']) && !empty($data['budget_items'])) {
 					<div class="ye_card p-4">
 						<div class="container">
 							<div class="row">
+								<div class="col-md-12">
+									<?php
+									// Show errors and success message
+									if(isset($data['error']) && !empty($data['error'])){
+										echo "<div class=\"alert alert-danger\"><ul>";
+				                        foreach ($data['error'] as $error) {
+				                           echo "<li> " . $error . "</li>";
+				                        }
+				                        echo "</ul></div>";
+
+									}
+
+									if(isset($data['success']) && !empty($data['success'])){
+										echo "<div class=\"alert alert-success\"><p>";
+										echo $data['success'];
+				                        echo "</p></div>";
+
+									}
+
+
+									?>
+								</div>
 								<div class="col-md-4 text-center">
-									<h5 class="display-6"><?php echo $budgetData['target_budget']; ?> Birr <a href="#" data-toggle="modal" data-target="#edittarget"><i class="fa fa-edit"></i></a> </h5>
+									<h5 class="display-6">
+										<?php echo $budgetData['target_budget']; 
+										?> Birr 
+										<a href="#" data-toggle="modal" data-target="#edittarget"><i class="fa fa-edit"></i></a> </h5>
 									<p>Targeted Amount</p>
 									<!--  modal-->
 			
 								</div>
 								<div class="col-md-4 text-center">
-									<h5 class="display-6">15,000 Birr</h5>
+									<h5 class="display-6"><?php
+									if($incomeExpense){
+										echo $incomeExpense['expense'];
+
+									}else{
+										echo $budgetData['estimated_expense']; 
+
+									} 
+									?> Birr</h5>
 									<p>Estimated Expense</p>
 								</div>
 								<div class="col-md-4 text-center">
-									<h5 class="display-6">5,000 Birr</h5>
+									<h5 class="display-6"><?php
+									if($incomeExpense){
+										echo $incomeExpense['income'];
+
+									}else{
+										echo $budgetData['estimated_income']; 
+
+									} 
+									?> Birr</h5>
 									<p>Estimated Income</p>
 								</div>
 							</div>
@@ -189,14 +234,41 @@ if (isset($data['budget_items']) && !empty($data['budget_items'])) {
 						</div>
 					</div>
 
-					<div class="ye_card">
+					<div class="ye_card p-0">
 						<!-- category -->
 						<?php 
 
 						if($budgetItems){
+							?>
+							<table class="table table-hover">
+							  <thead>
+							    <tr>
+							      <th scope="col">#</th>
+							      <th scope="col">Item Name</th>
+							      <th scope="col">Category</th>
+							      <th scope="col">Type</th>
+							      <th scope="col">Amount/Cost</th>
+							      <th scope="col">Action</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+
+							<?php
 							
 							foreach ($budgetItems as $budgetItem) {
-								echo $budgetItem[2] . '</br>';
+								
+								?>
+								<tr>
+							      <th scope="row">BI_<?= $budgetItem[0]?></th>
+							      <td><?= $budgetItem[2]?></td>
+							      <td><?= $budgetItem[3]?></td>
+							      <td><?= $budgetItem[4]?></td>
+							      <td><?= $budgetItem[5]?> Birr</td>
+							      <td><a href="<?php echo $host ?>dashboard_event/delete/<?=$budgetItem[0] ?>/<?=$budgetItem[4] ?>/<?=$budgetItem[5] ?>" class="text-danger"><i class="fa fa-trash"></i> Delete</a></td>
+							    </tr>
+	
+
+								<?php
 							}
 
 						}else{
@@ -204,6 +276,8 @@ if (isset($data['budget_items']) && !empty($data['budget_items'])) {
 						}
 
 						?>
+
+    
 					</div>
 				</div>
 			</div>
@@ -217,23 +291,3 @@ if (isset($data['budget_items']) && !empty($data['budget_items'])) {
 <?php
 
 require_once 'app/views/partials/dashboard-footer.php';
-?>
-
-<!-- <script>
-	$(document).ready(function(){
-
-		$('#targetamount').submit(function(){
-			$.ajax({
-				type:'POST',
-				url:'dashboard_event/edit/3',
-				success: function(data){
-					alert(data);
-
-				}
-			})
-		})
-	})
-
-
-</script>
- -->

@@ -37,9 +37,14 @@ class Validate
 								$this->addError("{$display} must be a minimum of {$rule_value}.");
 							}
 							break;
-						case 'mix':
+						case 'max':
 							if(strlen($value) > $rule_value){
 								$this->addError("{$display} must be a maximum of {$rule_value}.");
+							}
+							break;
+						case 'type':
+							if(!is_numeric($value)){
+								$this->addError("{$display} must be a {$rule_value}.");
 							}
 							break;
 
